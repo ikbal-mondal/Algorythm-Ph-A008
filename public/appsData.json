@@ -1,0 +1,542 @@
+[
+  {
+    "image": "https://img.icons8.com/color/96/chat--v1.png",
+    "title": "ChatMaster",
+    "companyName": "ChatTech Inc.",
+    "id": 1,
+    "description": "AI-powered chat assistant to help with daily tasks and reminders.",
+    "size": 48.5,
+    "reviews": 1324,
+    "ratingAvg": 4.6,
+    "downloads": 500000,
+    "ratings": [
+      { "name": "1 star", "count": 50 },
+      { "name": "2 star", "count": 30 },
+      { "name": "3 star", "count": 120 },
+      { "name": "4 star", "count": 340 },
+      { "name": "5 star", "count": 784 }
+    ]
+  },
+  {
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYeRd6XqwcJ_4wALtMAHWjakOIYydmEmFFUw&s",
+    "title": "FitTrack",
+    "companyName": "HealthWave",
+    "id": 2,
+    "description": "Track your workouts, diet and health metrics in one place.",
+    "size": 60.2,
+    "reviews": 845,
+    "ratingAvg": 4.4,
+    "downloads": 300000,
+    "ratings": [
+      { "name": "1 star", "count": 25 },
+      { "name": "2 star", "count": 20 },
+      { "name": "3 star", "count": 90 },
+      { "name": "4 star", "count": 250 },
+      { "name": "5 star", "count": 460 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/money-bag.png",
+    "title": "ExpenseEase",
+    "companyName": "MoneySmart Ltd.",
+    "id": 3,
+    "description": "Manage expenses, budgets and financial goals effortlessly.",
+    "size": 25.7,
+    "reviews": 610,
+    "ratingAvg": 4.2,
+    "downloads": 220000,
+    "ratings": [
+      { "name": "1 star", "count": 20 },
+      { "name": "2 star", "count": 15 },
+      { "name": "3 star", "count": 85 },
+      { "name": "4 star", "count": 230 },
+      { "name": "5 star", "count": 260 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/camera--v1.png",
+    "title": "PhotoMagic",
+    "companyName": "SnapWorks",
+    "id": 4,
+    "description": "Edit and transform your photos with advanced filters and tools.",
+    "size": 80.3,
+    "reviews": 1500,
+    "ratingAvg": 4.7,
+    "downloads": 750000,
+    "ratings": [
+      { "name": "1 star", "count": 40 },
+      { "name": "2 star", "count": 25 },
+      { "name": "3 star", "count": 100 },
+      { "name": "4 star", "count": 450 },
+      { "name": "5 star", "count": 885 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/news.png",
+    "title": "NewsFlash",
+    "companyName": "DailyByte",
+    "id": 5,
+    "description": "Your personalized news aggregator with offline reading.",
+    "size": 32.1,
+    "reviews": 970,
+    "ratingAvg": 4.3,
+    "downloads": 410000,
+    "ratings": [
+      { "name": "1 star", "count": 30 },
+      { "name": "2 star", "count": 18 },
+      { "name": "3 star", "count": 120 },
+      { "name": "4 star", "count": 300 },
+      { "name": "5 star", "count": 502 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/language.png",
+    "title": "LanguageLearner",
+    "companyName": "LinguaPro",
+    "id": 6,
+    "description": "Learn new languages via interactive lessons and quizzes.",
+    "size": 55.4,
+    "reviews": 1120,
+    "ratingAvg": 4.5,
+    "downloads": 620000,
+    "ratings": [
+      { "name": "1 star", "count": 28 },
+      { "name": "2 star", "count": 22 },
+      { "name": "3 star", "count": 110 },
+      { "name": "4 star", "count": 400 },
+      { "name": "5 star", "count": 560 }
+    ]
+  },
+  {
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfuHaRlLLi4uSUu0v2opgzJL8FExY5EuyXvA&s",
+    "title": "TravelBuddy",
+    "companyName": "WanderTech",
+    "id": 7,
+    "description": "Plan trips, get deals, and track itineraries easily.",
+    "size": 45.0,
+    "reviews": 780,
+    "ratingAvg": 4.1,
+    "downloads": 280000,
+    "ratings": [
+      { "name": "1 star", "count": 35 },
+      { "name": "2 star", "count": 20 },
+      { "name": "3 star", "count": 95 },
+      { "name": "4 star", "count": 260 },
+      { "name": "5 star", "count": 370 }
+    ]
+  },
+  {
+    "image": "https://play-lh.googleusercontent.com/ipub6vp2ZQUoCa0I4HbrbW2EY1bNAFtIDHOvKZ-0TvFg0VL_eQnLCUZCn8PpLLx_ekCZ_rYVoyRU6ozrgU3WY28=w240-h480-rw",
+    "title": "WeatherNow",
+    "companyName": "SkyCast LLC",
+    "id": 8,
+    "description": "Accurate hourly weather forecasts and alerts.",
+    "size": 28.9,
+    "reviews": 1345,
+    "ratingAvg": 4.6,
+    "downloads": 540000,
+    "ratings": [
+      { "name": "1 star", "count": 20 },
+      { "name": "2 star", "count": 18 },
+      { "name": "3 star", "count": 90 },
+      { "name": "4 star", "count": 380 },
+      { "name": "5 star", "count": 837 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/sleeping.png",
+    "title": "SleepWell",
+    "companyName": "Restful Apps",
+    "id": 9,
+    "description": "Sleep sounds, tracking, and analytics for better rest.",
+    "size": 27.2,
+    "reviews": 690,
+    "ratingAvg": 4.2,
+    "downloads": 200000,
+    "ratings": [
+      { "name": "1 star", "count": 18 },
+      { "name": "2 star", "count": 12 },
+      { "name": "3 star", "count": 70 },
+      { "name": "4 star", "count": 230 },
+      { "name": "5 star", "count": 360 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/chef-hat.png",
+    "title": "RecipeMaster",
+    "companyName": "CookIt Labs",
+    "id": 10,
+    "description": "Discover and save recipes from around the world.",
+    "size": 38.6,
+    "reviews": 820,
+    "ratingAvg": 4.3,
+    "downloads": 260000,
+    "ratings": [
+      { "name": "1 star", "count": 22 },
+      { "name": "2 star", "count": 17 },
+      { "name": "3 star", "count": 85 },
+      { "name": "4 star", "count": 280 },
+      { "name": "5 star", "count": 418 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/lotus.png",
+    "title": "MindCalm",
+    "companyName": "ZenSpace",
+    "id": 11,
+    "description": "Guided meditations and mindfulness sessions daily.",
+    "size": 34.1,
+    "reviews": 950,
+    "ratingAvg": 4.5,
+    "downloads": 350000,
+    "ratings": [
+      { "name": "1 star", "count": 20 },
+      { "name": "2 star", "count": 14 },
+      { "name": "3 star", "count": 70 },
+      { "name": "4 star", "count": 300 },
+      { "name": "5 star", "count": 546 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/sale.png",
+    "title": "FlashSale",
+    "companyName": "DealzHub",
+    "id": 12,
+    "description": "Get limited time deals and offers on trending products.",
+    "size": 22.5,
+    "reviews": 710,
+    "ratingAvg": 4.0,
+    "downloads": 180000,
+    "ratings": [
+      { "name": "1 star", "count": 30 },
+      { "name": "2 star", "count": 25 },
+      { "name": "3 star", "count": 90 },
+      { "name": "4 star", "count": 220 },
+      { "name": "5 star", "count": 345 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/task.png",
+    "title": "TaskMaster",
+    "companyName": "ProFlow",
+    "id": 13,
+    "description": "Organize tasks, set reminders and boost productivity.",
+    "size": 30.8,
+    "reviews": 1230,
+    "ratingAvg": 4.4,
+    "downloads": 470000,
+    "ratings": [
+      { "name": "1 star", "count": 22 },
+      { "name": "2 star", "count": 18 },
+      { "name": "3 star", "count": 100 },
+      { "name": "4 star", "count": 390 },
+      { "name": "5 star", "count": 500 }
+    ]
+  },
+  {
+    "image": "https://play-lh.googleusercontent.com/nSMhiEs5N5yPrCiY2I6oJY-O-d11paVWy7MpnLL8Sh3SCzfyDENguvVpda6mEtTgOXo",
+    "title": "LanguageQuiz",
+    "companyName": "EduFun",
+    "id": 14,
+    "description": "Test your language skills through daily quizzes.",
+    "size": 15.4,
+    "reviews": 540,
+    "ratingAvg": 4.1,
+    "downloads": 150000,
+    "ratings": [
+      { "name": "1 star", "count": 15 },
+      { "name": "2 star", "count": 14 },
+      { "name": "3 star", "count": 60 },
+      { "name": "4 star", "count": 180 },
+      { "name": "5 star", "count": 271 }
+    ]
+  },
+  {
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbLrALxInH3XAEnOO95nTJQ3BhUm19HZymrA&s",
+    "title": "HabitPlus",
+    "companyName": "BetterYou",
+    "id": 15,
+    "description": "Build and track good habits over time.",
+    "size": 20.0,
+    "reviews": 900,
+    "ratingAvg": 4.2,
+    "downloads": 300000,
+    "ratings": [
+      { "name": "1 star", "count": 20 },
+      { "name": "2 star", "count": 18 },
+      { "name": "3 star", "count": 80 },
+      { "name": "4 star", "count": 310 },
+      { "name": "5 star", "count": 472 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/book.png",
+    "title": "BookShelf",
+    "companyName": "ReadOn",
+    "id": 16,
+    "description": "A digital library app to read and manage books.",
+    "size": 42.7,
+    "reviews": 670,
+    "ratingAvg": 4.3,
+    "downloads": 230000,
+    "ratings": [
+      { "name": "1 star", "count": 18 },
+      { "name": "2 star", "count": 14 },
+      { "name": "3 star", "count": 75 },
+      { "name": "4 star", "count": 220 },
+      { "name": "5 star", "count": 345 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/joystick.png",
+    "title": "GameZone",
+    "companyName": "FunGames Co.",
+    "id": 17,
+    "description": "Casual and puzzle games for all ages.",
+    "size": 120.5,
+    "reviews": 2100,
+    "ratingAvg": 4.8,
+    "downloads": 900000,
+    "ratings": [
+      { "name": "1 star", "count": 60 },
+      { "name": "2 star", "count": 30 },
+      { "name": "3 star", "count": 120 },
+      { "name": "4 star", "count": 600 },
+      { "name": "5 star", "count": 1290 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/microphone.png",
+    "title": "NewsVoice",
+    "companyName": "AudioNews",
+    "id": 18,
+    "description": "Listen to news articles in voice while multitasking.",
+    "size": 36.3,
+    "reviews": 550,
+    "ratingAvg": 4.0,
+    "downloads": 160000,
+    "ratings": [
+      { "name": "1 star", "count": 12 },
+      { "name": "2 star", "count": 10 },
+      { "name": "3 star", "count": 50 },
+      { "name": "4 star", "count": 180 },
+      { "name": "5 star", "count": 298 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/car.png",
+    "title": "Transporter",
+    "companyName": "GoMoves",
+    "id": 19,
+    "description": "Ride sharing, public transport schedules and route planner.",
+    "size": 52.0,
+    "reviews": 1020,
+    "ratingAvg": 4.4,
+    "downloads": 420000,
+    "ratings": [
+      { "name": "1 star", "count": 28 },
+      { "name": "2 star", "count": 25 },
+      { "name": "3 star", "count": 110 },
+      { "name": "4 star", "count": 320 },
+      { "name": "5 star", "count": 537 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/calendar.png",
+    "title": "Eventify",
+    "companyName": "SocialEase",
+    "id": 20,
+    "description": "Organize, discover, and manage events near you.",
+    "size": 46.8,
+    "reviews": 760,
+    "ratingAvg": 4.2,
+    "downloads": 240000,
+    "ratings": [
+      { "name": "1 star", "count": 25 },
+      { "name": "2 star", "count": 20 },
+      { "name": "3 star", "count": 80 },
+      { "name": "4 star", "count": 260 },
+      { "name": "5 star", "count": 375 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/music.png",
+    "title": "SoundWave",
+    "companyName": "Musicify",
+    "id": 21,
+    "description": "Stream and download your favorite songs with ease.",
+    "size": 85.6,
+    "reviews": 2500,
+    "ratingAvg": 4.7,
+    "downloads": 1000000,
+    "ratings": [
+      { "name": "1 star", "count": 90 },
+      { "name": "2 star", "count": 60 },
+      { "name": "3 star", "count": 180 },
+      { "name": "4 star", "count": 700 },
+      { "name": "5 star", "count": 1470 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/todo-list.png",
+    "title": "NotePro",
+    "companyName": "WriteSoft",
+    "id": 22,
+    "description": "Take quick notes, organize tasks, and sync across devices.",
+    "size": 18.4,
+    "reviews": 640,
+    "ratingAvg": 4.1,
+    "downloads": 210000,
+    "ratings": [
+      { "name": "1 star", "count": 20 },
+      { "name": "2 star", "count": 18 },
+      { "name": "3 star", "count": 70 },
+      { "name": "4 star", "count": 210 },
+      { "name": "5 star", "count": 322 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/shopping-cart.png",
+    "title": "ShopSmart",
+    "companyName": "EcomSoft",
+    "id": 23,
+    "description": "Compare prices, browse deals and shop smarter online.",
+    "size": 50.0,
+    "reviews": 890,
+    "ratingAvg": 4.3,
+    "downloads": 370000,
+    "ratings": [
+      { "name": "1 star", "count": 28 },
+      { "name": "2 star", "count": 22 },
+      { "name": "3 star", "count": 100 },
+      { "name": "4 star", "count": 310 },
+      { "name": "5 star", "count": 430 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/security-checked.png",
+    "title": "SafeNet",
+    "companyName": "CyberGuard",
+    "id": 24,
+    "description": "Protect your device and privacy with secure VPN and scans.",
+    "size": 58.9,
+    "reviews": 1100,
+    "ratingAvg": 4.6,
+    "downloads": 500000,
+    "ratings": [
+      { "name": "1 star", "count": 25 },
+      { "name": "2 star", "count": 18 },
+      { "name": "3 star", "count": 100 },
+      { "name": "4 star", "count": 350 },
+      { "name": "5 star", "count": 607 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/dumbbell.png",
+    "title": "GymHero",
+    "companyName": "FitNation",
+    "id": 25,
+    "description": "Workout tracker with routines and progress analytics.",
+    "size": 62.4,
+    "reviews": 980,
+    "ratingAvg": 4.5,
+    "downloads": 480000,
+    "ratings": [
+      { "name": "1 star", "count": 20 },
+      { "name": "2 star", "count": 15 },
+      { "name": "3 star", "count": 90 },
+      { "name": "4 star", "count": 330 },
+      { "name": "5 star", "count": 525 }
+    ]
+  },
+  {
+    "image": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.homeconnect/HEAD/admin/homeconnect.png",
+    "title": "HomeConnect",
+    "companyName": "SmartHive",
+    "id": 26,
+    "description": "Control all your smart devices in one unified app.",
+    "size": 70.3,
+    "reviews": 870,
+    "ratingAvg": 4.4,
+    "downloads": 410000,
+    "ratings": [
+      { "name": "1 star", "count": 30 },
+      { "name": "2 star", "count": 20 },
+      { "name": "3 star", "count": 85 },
+      { "name": "4 star", "count": 290 },
+      { "name": "5 star", "count": 445 }
+    ]
+  },
+  {
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6yN52lbcMo49D1dxyvCMLVjYBRZaUs95RPA&s",
+    "title": "PodPlay",
+    "companyName": "ListenUp",
+    "id": 27,
+    "description": "Stream podcasts and manage your listening library.",
+    "size": 42.2,
+    "reviews": 750,
+    "ratingAvg": 4.2,
+    "downloads": 250000,
+    "ratings": [
+      { "name": "1 star", "count": 22 },
+      { "name": "2 star", "count": 16 },
+      { "name": "3 star", "count": 75 },
+      { "name": "4 star", "count": 260 },
+      { "name": "5 star", "count": 377 }
+    ]
+  },
+  {
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdULgcex-WYNPr_v3N5TgifJweGikCm2jNjQ&s",
+    "title": "FocusZen",
+    "companyName": "Calmify",
+    "id": 28,
+    "description": "Ambient music and timers for deep focus and meditation.",
+    "size": 33.8,
+    "reviews": 680,
+    "ratingAvg": 4.3,
+    "downloads": 230000,
+    "ratings": [
+      { "name": "1 star", "count": 20 },
+      { "name": "2 star", "count": 15 },
+      { "name": "3 star", "count": 80 },
+      { "name": "4 star", "count": 250 },
+      { "name": "5 star", "count": 315 }
+    ]
+  },
+  {
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdLfcF_2TwunhLXP2D5oPEkTHE2gT6hCx9RQ&s",
+    "title": "MealPrep",
+    "companyName": "HealthEat",
+    "id": 29,
+    "description": "Plan weekly meals and track nutrition goals.",
+    "size": 29.5,
+    "reviews": 720,
+    "ratingAvg": 4.2,
+    "downloads": 210000,
+    "ratings": [
+      { "name": "1 star", "count": 18 },
+      { "name": "2 star", "count": 14 },
+      { "name": "3 star", "count": 80 },
+      { "name": "4 star", "count": 260 },
+      { "name": "5 star", "count": 348 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/96/graph.png",
+    "title": "StockTrack",
+    "companyName": "FinVision",
+    "id": 30,
+    "description": "Track and analyze stocks and investments in real time.",
+    "size": 47.3,
+    "reviews": 1010,
+    "ratingAvg": 4.5,
+    "downloads": 490000,
+    "ratings": [
+      { "name": "1 star", "count": 30 },
+      { "name": "2 star", "count": 18 },
+      { "name": "3 star", "count": 90 },
+      { "name": "4 star", "count": 340 },
+      { "name": "5 star", "count": 532 }
+    ]
+  }
+]

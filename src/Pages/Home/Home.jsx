@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from '../../Components/Banner/Banner';
 import heroImage from '../../assets/hero.png'
+import StatsSection from '../../Components/Footer/StatsSection';
+import AppsCard from '../../Components/AppsCard/AppsCard';
+import { Link } from 'react-router';
+
 
 const Home = () => {
+ const [appsData, setAppsData] = useState([])
+
+   useEffect(() => {
+      fetch('appsData.json')
+      .then(res => res.json())
+      .then(data =>setAppsData(data)
+      )
+     
+
+   }, [])
+
+   const homeSliceData = appsData.slice(0, 8)
+     
+
     return (
         <div>
            <Banner></Banner>
@@ -13,6 +31,24 @@ const Home = () => {
                 <h1 className='lg:text-5xl text-3xl mb-2 font-bold text-gray-800'>Trending Apps</h1>
                 <p className='text-2lg text-gray-400'>Explore All Trending Apps on the Market developed by us</p>
             </div>
+
+           <div className=" lg:w-5xl mt-24 container  mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+             {
+                homeSliceData.map(app => <AppsCard key={app.id} app={app}></AppsCard>)
+            }
+           </div>
+             <div className="flex  items-center mb-16 mt-6 justify-center">
+          <Link to='/apps'>
+               <button class="bg-gradient-to-r cursor-pointer from-violet-600 to-purple-500 text-white font-medium py-3 px-12 rounded-lg shadow-lg hover:from-violet-700 hover:to-purple-600 transition duration-150 ease-in-out">
+  Show All
+</button>
+          </Link>
+             </div>
+            {/* status section  */}
+             <div className="">
+                <StatsSection></StatsSection>
+             </div>
+             {/*  */}
         </div>
     );
 };
