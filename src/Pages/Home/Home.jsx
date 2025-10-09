@@ -10,7 +10,7 @@ const Home = () => {
  const [appsData, setAppsData] = useState([])
 
    useEffect(() => {
-      fetch('appsData.json')
+      fetch('../appsData.json')
       .then(res => res.json())
       .then(data =>setAppsData(data)
       )
@@ -24,10 +24,14 @@ const Home = () => {
     return (
         <div>
            <Banner></Banner>
-           <div className="flex mb-6 mx-6 justify-center items-center">
+           <div className="flex mx-6 bg-gray-50 justify-center items-center">
             <img className='' src={heroImage} alt="" />
+             
            </div>
-            <div className="text-center my-8">
+           <div className="">
+                <StatsSection></StatsSection>
+             </div>
+            <div className="text-center bg-gray-50 py-12">
                 <h1 className='lg:text-5xl text-3xl mb-2 font-bold text-gray-800'>Trending Apps</h1>
                 <p className='text-2lg text-gray-400'>Explore All Trending Apps on the Market developed by us</p>
             </div>
@@ -39,15 +43,13 @@ const Home = () => {
            </div>
              <div className="flex  items-center mb-16 mt-6 justify-center">
           <Link to='/apps'>
-               <button class="bg-gradient-to-r cursor-pointer from-violet-600 to-purple-500 text-white font-medium py-3 px-12 rounded-lg shadow-lg hover:from-violet-700 hover:to-purple-600 transition duration-150 ease-in-out">
+               <button className="bg-gradient-to-r cursor-pointer from-violet-600 to-purple-500 text-white font-medium py-3 px-12 rounded-lg shadow-lg hover:from-violet-700 hover:to-purple-600 transition duration-150 ease-in-out">
   Show All
 </button>
           </Link>
              </div>
             {/* status section  */}
-             <div className="">
-                <StatsSection></StatsSection>
-             </div>
+            
              {/*  */}
         </div>
     );
