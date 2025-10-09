@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { Link, useParams } from 'react-router';
 import { MdOutlineFileDownload, MdOutlineReviews } from 'react-icons/md';
 import { FaStar } from 'react-icons/fa';
 import RechartCard from './RechartCard';
+import { toast } from 'react-toastify';
 
 
 const AppDetails = () => {
      const {appsID} = useParams()
-
+ const [isInstalled, setIsInstalled] = useState(false);
       const [appsData, setAppsData] = useState([])
      
         useEffect(() => {
@@ -22,7 +23,26 @@ const AppDetails = () => {
 
           const appDetails = appsData?.find((appDetail) => appDetail.id === parseInt(appsID));
 
-            const {image,title,companyName,downloads,ratingAvg,reviews,size,description} = appDetails || {}
+            const {image,title,companyName,downloads,ratingAvg,reviews,size,description,id} = appDetails || {}
+
+  const handleAdToInstallToLS = () => {
+    const installApp = JSON.parse(localStorage.getItem("installApp")) || [];
+    const setItem = installApp.find((item) => item.id === appDetails.id);
+        setIsInstalled(true);
+    
+    if (setItem) {
+      toast.error('Al Ready Installed This App')
+      return;
+    }
+    installApp.push(appDetails);
+    localStorage.setItem("installApp", JSON.stringify(installApp));
+    toast.success('App Installed')
+  };
+const buttonText = isInstalled ? 'Installed' : `Install Now (${size} MB)`;
+
+ const buttonClasses = isInstalled
+        ? 'bg-gray-500 cursor-not-allowed' 
+        : 'bg-green-500 hover:bg-green-600';
 
 
 
@@ -63,9 +83,23 @@ const AppDetails = () => {
             </div>
 
             {/* Install Button */}
-            <button className=" mt-2 bg-green-400 hover:bg-green-600 text-white font-bold text-xl py-3 px-6 rounded text-sm transition duration-150">
+            
+{/*             
+            <button onClick={() => handleAdToInstallToLS(id)} className=" mt-2 bg-green-400 hover:bg-green-600 text-white font-bold text-xl py-3 px-6 rounded text-sm transition duration-150">
                 Install Now ({size} MB)
-            </button>
+            </button> */}
+
+          <button
+            onClick={() => handleAdToInstallToLS(id)}
+            // 4. DISABLE: Use the state to disable the button after installation.
+            disabled={isInstalled}
+            className={`mt-2 cursor-pointer text-white font-bold text-xl py-3 px-6 rounded text-sm transition duration-150 
+                        ${buttonClasses}`}
+        >
+            {buttonText}
+        </button>
+            
+            
         </div>
         
     </div>

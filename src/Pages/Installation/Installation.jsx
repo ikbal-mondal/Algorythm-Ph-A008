@@ -1,76 +1,20 @@
-import React, { useState, useEffect } from 'react';
-// Assuming you have an SVG for the download icon (e.g., download-icon.svg)
-// or you use a library like Heroicons. For simplicity, I'll use text or a simple SVG for icons.
-
-// Placeholder for an SVG download icon
-const DownloadIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="h-4 w-4 inline-block text-gray-500 mr-1"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth={2}
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-    />
-  </svg>
-);
-
-// Placeholder for a star icon
-const StarIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="h-4 w-4 inline-block text-yellow-500 mr-1"
-    viewBox="0 0 20 20"
-    fill="currentColor"
-  >
-    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z" />
-  </svg>
-);
-
+import { DownloadIcon, StarIcon } from 'lucide-react';
+import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const Installation = () => {
   // Use the description and image data you previously generated
-  const [installedApps, setInstalledApps] = useState([
-    {
-      "image": "https://img.icons8.com/color/96/chat--v1.png",
-      "title": "ChatMaster",
-      "companyName": "ChatTech Inc.",
-      "id": 1,
-      "description": "...", // Long description not needed for this component view
-      "size": 48.5, // in MB
-      "reviews": 1324, // Using 'reviews' as download count for display
-      "ratingAvg": 4.6,
-    },
-    {
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYeRd6XqwcJ_4wALtMAHWjakOIYydmEmFFUw&s",
-      "title": "FitTrack",
-      "companyName": "HealthWave",
-      "id": 2,
-      "description": "...",
-      "size": 60.2,
-      "reviews": 845,
-      "ratingAvg": 4.4,
-    },
-   
-  ]);
+  const installApp = JSON.parse(localStorage.getItem("installApp")) || [];
+ 
 
   const [sortOrder, setSortOrder] = useState('size'); // 'size', 'name', 'rating', 'downloads'
 
-  useEffect(() => {
-    // In a real application, you might fetch this data from an API
-    // For now, we're using static data
-    // Example: fetch('/api/installed-apps').then(res => res.json()).then(data => setInstalledApps(data));
-  }, []);
-
-  const handleUninstall = (id) => {
-    setInstalledApps(prevApps => prevApps.filter(app => app.id !== id));
-    console.log(`Uninstall app with ID: ${id}`);
-    // In a real app, you'd likely make an API call here to uninstall
+   const handleUninstall = (id) => {
+    const newUnInstall = installApp.filter((item) => item.id !== id);
+        localStorage.setItem("installApp", JSON.stringify(newUnInstall));
+        
+        window.location.reload();
+         toast.success('Uninstalled This App')
   };
 
   const sortApps = (apps) => {
@@ -88,7 +32,7 @@ const Installation = () => {
     }
   };
 
-  const formattedApps = sortApps(installedApps);
+  const formattedApps = sortApps(installApp);
 
   return (
     <div className=" bg-gray-50 p-4 sm:p-6 md:p-8">
@@ -106,7 +50,7 @@ const Installation = () => {
 
         {/* Info Bar & Sort */}
         <div className="flex justify-between items-center mb-6">
-          <p className="text-gray-700 font-semibold">{installedApps.length} Apps Found</p>
+          <p className="text-gray-700 font-semibold">{installApp.length} Apps Found</p>
           <div className="relative">
             <select
               className="appearance-none bg-white border border-gray-300 rounded-md py-2 pl-3 pr-8 shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
@@ -175,7 +119,10 @@ const Installation = () => {
               </div>
             ))
           ) : (
-            <p className="text-center text-gray-500 py-8">No apps found.</p>
+           <div className="">
+               
+             <p className="text-center text-gray-500 py-8 font-bold text-xl">All Installed Apps Show Here. <span className='text-blue-500 font-bold text-xl'>Not installed any Apps</span> .</p>
+           </div>
           )}
         </div>
       </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AppsCard from '../../Components/AppsCard/AppsCard';
 
 const Apps = () => {
-
+    const [searchTerm, setSearchTerm] = useState('');
     const [appsData, setAppsData] = useState([])
 
    useEffect(() => {
@@ -14,12 +14,20 @@ const Apps = () => {
 
    }, [])
 
+   console.log(appsData);
+   
+
+    const filteredApps = appsData.filter(app =>
+      app?.title?.toLowerCase()?.includes(searchTerm?.toLowerCase()?.trim())
+    
+    );
+
     return (
         <div>
             <div className="flex mt-16 lg:w-5xl mx-auto justify-between items-center">
 
                 <div className="">
-                  <h2 className='text-2xl font-bold'> ({appsData.length})  <span>Apps Found</span></h2>
+                  <h2 className='text-2xl font-bold'> ({filteredApps?.length})  <span>Apps Found</span></h2>
                 </div>
                 <div className="">
                     <label className="input">
@@ -35,16 +43,20 @@ const Apps = () => {
       <path d="m21 21-4.3-4.3"></path>
     </g>
   </svg>
-  <input type="search" required placeholder="Search" />
+  <input  onChange={(e) => setSearchTerm(e.target.value)} type="search" required placeholder="Search" />
 </label>
                 </div>
 
             </div>
-            <div className=" lg:w-5xl mt-2 container  mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+           {
+            filteredApps.length === 0 ? <div className=" lg:w-5xl container mx-auto border-2 border-gray-100 py-4 my-12">
+              <p className='text-center text-2xl text-black-200'>No Data Found</p>
+            </div> :  <div className=" lg:w-5xl mt-2 container  mx-auto grid grid-cols-1 md:grid-cols-3 my-4 lg:grid-cols-4 gap-6">
              {
-                appsData.map(app => <AppsCard key={app.id} app={app}></AppsCard>)
+                filteredApps?.map(app => <AppsCard key={app.id} app={app}></AppsCard>)
             }
            </div>
+           }
         </div>
     );
 };
