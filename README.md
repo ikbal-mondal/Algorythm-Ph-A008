@@ -36,7 +36,7 @@ This project is a modern, responsive single-page application (SPA) designed to s
 
 ## 🛠️ Technology Stack
 
-* **Frontend Framework:** [Specify Framework/Library, e.g., React, Vue, Angular]
+* **Frontend Framework:** [Specify Framework/Library, React]
 * **Styling:** [Specify Styling Method, e.g., CSS Modules, Styled Components, Tailwind CSS]
 * **Routing:** [Specify Router, e.g., React Router DOM]
 * **Data Visualization:** **Recharts**

@@ -1,120 +1,199 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router';
-import { MdOutlineFileDownload, MdOutlineReviews } from 'react-icons/md';
-import { FaStar } from 'react-icons/fa';
-import RechartCard from './RechartCard';
-import { toast } from 'react-toastify';
-
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { MdOutlineFileDownload, MdOutlineReviews } from "react-icons/md";
+import { FaStar } from "react-icons/fa";
+import RechartCard from "./RechartCard";
+import { toast } from "react-toastify";
+import LocalSpinner from "../../Components/LocalSpinner"; // Adjust path if necessary
+import { AlertCircle } from "lucide-react";
 
 const AppDetails = () => {
-     const {appsID} = useParams()
- const [isInstalled, setIsInstalled] = useState(false);
-      const [appsData, setAppsData] = useState([])
-     
-        useEffect(() => {
-           fetch('../appsData.json')
-           .then(res => res.json())
-        .then(data => setAppsData(data),
-          
-           )
-          
-        }, [])
+  const { appsID } = useParams();
+  const [isInstalled, setIsInstalled] = useState(false);
+  const [appsData, setAppsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setIsLoading(true);
 
+    fetch("../appsData.json")
+      .then((res) => res.json())
+      .then((data) => setAppsData(data))
+      .catch((error) => {
+        console.error("Error fetching app data:", error);
+      })
+      .finally(() => {
+        setTimeout(() => setIsLoading(false), 700);
+      });
+  }, []);
 
-          const appDetails = appsData?.find((appDetail) => appDetail.id === parseInt(appsID));
+  const appDetails = appsData?.find(
+    (appDetail) => appDetail.id === parseInt(appsID)
+  );
+  const {
+    image,
+    title,
+    companyName,
+    downloads,
+    ratingAvg,
+    reviews,
+    size,
+    description,
+    id,
+  } = appDetails || {};
 
-            const {image,title,companyName,downloads,ratingAvg,reviews,size,description,id} = appDetails || {}
+  useEffect(() => {
+    if (id) {
+      const installedApps =
+        JSON.parse(localStorage.getItem("installApp")) || [];
+      const alreadyInstalled = installedApps.some((item) => item.id === id);
+      setIsInstalled(alreadyInstalled);
+    }
+  }, [id]);
 
   const handleAdToInstallToLS = () => {
-    const installApp = JSON.parse(localStorage.getItem("installApp")) || [];
-    const setItem = installApp.find((item) => item.id === appDetails.id);
-        setIsInstalled(true);
-    
-    if (setItem) {
-      toast.error('Al Ready Installed This App')
+    if (isInstalled) {
+      toast.error("This App is already installed.");
       return;
     }
-    installApp.push(appDetails);
-    localStorage.setItem("installApp", JSON.stringify(installApp));
-    toast.success('App Installed')
+
+    const installedApps = JSON.parse(localStorage.getItem("installApp")) || [];
+    installedApps.push(appDetails);
+    localStorage.setItem("installApp", JSON.stringify(installedApps));
+
+    setIsInstalled(true);
+    toast.success("App Installed Successfully!");
   };
-const buttonText = isInstalled ? 'Installed' : `Install Now (${size} MB)`;
 
- const buttonClasses = isInstalled
-        ? 'bg-gray-500 cursor-not-allowed' 
-        : 'bg-green-500 hover:bg-green-600';
+  const buttonText = isInstalled ? "Installed" : `Install Now (${size} MB)`;
 
+  const buttonClasses = isInstalled
+    ? "bg-gray-400 cursor-not-allowed text-gray-700"
+    : "bg-green-600 hover:bg-green-700 text-white";
 
-
+  if (isLoading) {
     return (
-        <div className='max-w-6xl mx-auto'>
-      
-      <div className="flex items-center my-12  border-1 border-gray-300 gap-5  p-6 bg-white rounded-t-lg">
-        {/* App Icon */}
-        <div className="w-[30%]  h-[100%]  flex items-center justify-center">
-            <img src={image}  alt="App Icon" className=' w-full h-full border rounded'  />
-        </div>
-        
-        {/* Title and Developer */}
-        <div className='  space-y-2'>
-            <h1 className="lg:text-5xl text-3xl  font-semibold text-gray-800">{title}</h1>
-            <p className="text-xl text-gray-500">Developed by <span className="text-blue-600 text-xl">{companyName}</span></p>
-         <hr className='w-full my-5 text-gray-300' />
-            {/* Stats */}
-            <div className="flex justify-content-center items-center   space-x-8">
-                {/* Downloads */}
-                <div className="flex flex-col items-center space-y-2">
-                    <MdOutlineFileDownload className='text-4xl font-bold ' />
-                    <span className="text-lg text-gray-500">Downloads</span>
-                    <span className="text-3xl font-bold text-gray-800"> {downloads ? `${downloads.toString().slice(0, 2)}M` : 'N/A'}</span>
-                </div>
-                {/* Average Ratings */}
-                <div className="flex flex-col items-center space-y-2">
-                    <FaStar className='text-3xl font-bold' />
-                    <span className="text-lg text-gray-500">Average Ratings</span>
-                    <span className="text-3xl font-bold   "> {ratingAvg}</span>
-                </div>
-                {/* Total Reviews */}
-                <div className="flex flex-col items-center space-y-2">
-                    <MdOutlineReviews className='text-3xl font-bold' />
-                    <span className="text-xl text-gray-500 ">Total Reviews</span>
-                    <span className="text-3xl font-bold ">{reviews}</span>
-                </div>
-            </div>
-
-            {/* Install Button */}
-            
-{/*             
-            <button onClick={() => handleAdToInstallToLS(id)} className=" mt-2 bg-green-400 hover:bg-green-600 text-white font-bold text-xl py-3 px-6 rounded text-sm transition duration-150">
-                Install Now ({size} MB)
-            </button> */}
-
-          <button
-            onClick={() => handleAdToInstallToLS(id)}
-            // 4. DISABLE: Use the state to disable the button after installation.
-            disabled={isInstalled}
-            className={`mt-2 cursor-pointer text-white font-bold text-xl py-3 px-6 rounded text-sm transition duration-150 
-                        ${buttonClasses}`}
-        >
-            {buttonText}
-        </button>
-            
-            
-        </div>
-        
-    </div>
- <RechartCard ratingsData={appDetails?.ratings}></RechartCard>
-          <div className="my-4 p-4 border-2 border-gray-100">
-         <p><span className='text-lx underline font-bold'> Description:</span>{description}</p>
-       </div>
-      {/*  */}
-       
-     
-
-      
-
-        </div>
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <LocalSpinner type="svg" color="indigo" size="lg" />
+      </div>
     );
+  }
+
+  if (!appDetails && appsData.length > 0) {
+    return (
+      <div className="text-center  text-xl font-semibold">
+        <div className=" flex flex-col items-center justify-center bg-gradient-to-br from-slate-50 to-slate-200 dark:from-gray-900 dark:to-gray-800 text-center p-6">
+          <div className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-md  dark:border-gray-700 shadow-lg rounded-xl p-10  flex flex-col items-center">
+            <div className="flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-tr from-red-500 to-cyan-400 text-white mb-6 animate-pulse">
+              <AlertCircle size={40} />
+            </div>
+            <h1 className="text-2xl font-bold text-red-600 dark:text-gray-100 mb-3 ">
+              App Not Found
+            </h1>
+            <p className="text-gray-400 dark:text-gray-300 mb-6">
+              The page or app you’re looking for doesn’t exist.
+            </p>
+            <button
+              onClick={() => (window.location.href = "/")}
+              className="px-5 cursor-pointer py-2 rounded bg-gradient-to-r from-red-600 to-cyan-400 text-white font-semibold shadow hover:opacity-90 transition"
+            >
+              Go Home
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="max-w-6xl mx-auto py-8 px-4">
+      <div className="bg-white p-6 rounded-xl shadow-lg mb-8 border border-gray-100">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+          <div className="w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0">
+            <img
+              src={image}
+              alt={`${title} Icon`}
+              className="w-full h-full object-cover rounded-2xl shadow-md border border-gray-200"
+            />
+          </div>
+
+          <div className="flex-grow text-center sm:text-left">
+            <h1 className="text-3xl font-bold text-gray-900 mb-1">{title}</h1>
+            <p className="text-sm text-gray-500 mb-4">
+              Developed by{" "}
+              <span className="text-indigo-600 font-medium">{companyName}</span>
+            </p>
+
+            <button
+              onClick={handleAdToInstallToLS}
+              disabled={isInstalled}
+              className={`
+                                w-full sm:w-auto mt-2 font-semibold py-3 px-6 rounded-full text-base tracking-wide
+                                transition duration-200 ease-in-out transform hover:scale-[1.02]
+                                ${buttonClasses}
+                            `}
+            >
+              {buttonText}
+            </button>
+          </div>
+        </div>
+
+        <hr className="w-full my-6 border-gray-200" />
+
+        <div className="flex justify-around sm:justify-between items-center text-center">
+          <div className="flex flex-col items-center">
+            <MdOutlineFileDownload className="text-3xl text-indigo-500 mb-1" />
+            
+            <span className="text-2xl font-bold text-gray-800">
+              {downloads ? `${downloads.toString().slice(0, 2)}M` : "N/A"}
+            </span>
+            <span className="text-xs text-gray-500 mt-1 uppercase tracking-wider">
+              Downloads
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center border-x border-gray-200 px-4 sm:px-8">
+            <FaStar className="text-3xl text-yellow-500 mb-1" />
+            <span className="text-2xl font-bold text-gray-800">
+              {ratingAvg}
+            </span>
+            <span className="text-xs text-gray-500 mt-1 uppercase tracking-wider">
+              Rating
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <MdOutlineReviews className="text-3xl text-indigo-500 mb-1" />
+            <span className="text-2xl font-bold text-gray-800">{reviews}</span>
+            <span className="text-xs text-gray-500 mt-1 uppercase tracking-wider">
+              Reviews
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white p-6 rounded-xl shadow-lg mb-8 border border-gray-100">
+        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+          Ratings & Distribution
+        </h2>
+
+        <RechartCard ratingsData={appDetails?.ratings}></RechartCard>
+      </div>
+
+      <div className="mt-8 bg-white p-4 md:p-8 rounded-lg shadow-sm border border-gray-100">
+        <h2 className="text-xl font-bold text-gray-800 mb-4 border-b border-gray-200 pb-3">
+          Description
+        </h2>
+        <div className="text-gray-700 space-y-4 leading-relaxed text-sm">
+          {description &&
+            description.split("\n\n").map((paragraph, index) => (
+              <p key={index} className="mb-4 last:mb-0">
+                {paragraph}
+              </p>
+            ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default AppDetails;

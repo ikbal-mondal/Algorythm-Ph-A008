@@ -58,7 +58,7 @@ const Header  = () => {
           {/* Right Button */}
           <div className="hidden md:flex">
             <a
-              href="https://github.com"
+              href="https://github.com/ikbal-mondal"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white text-sm px-4 py-2 rounded-md flex items-center space-x-1 hover:opacity-90 transition"

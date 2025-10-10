@@ -1,25 +1,19 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
-// Utility function to format numbers (e.g., 8000000 -> 8M)
+
 const formatNumber = (num) => {
     if (num >= 1000000) return (num / 1000000).toFixed(0) + 'M';
     if (num >= 1000) return (num / 1000).toFixed(0) + 'K';
     return num.toString();
 };
 
-
-// --- Main Container Component (CORRECTED) ---
-// 💡 Correctly destructure { ratingsData } from the props object
 const RechartCard = ({ ratingsData }) => { 
 
-    // Add a check to ensure ratingsData is an array and not empty before processing
     if (!Array.isArray(ratingsData) || ratingsData.length === 0) {
-        // You can return null, a loading spinner, or an error message here
         return <div className="p-8 text-center text-gray-500">No rating data available.</div>;
     }
 
-    // Now, ratingsData is the array, so it is iterable
     const chartData = [...ratingsData].reverse();
     const maxCount = Math.max(...chartData.map(d => d.count));
 
