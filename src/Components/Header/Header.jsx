@@ -1,23 +1,27 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {  Menu, X } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
+import { FaAppStore, FaGithub } from "react-icons/fa";
 import logo  from '../../assets/logo.png'
+import { MdAddHome } from "react-icons/md";
+import { GoDownload } from "react-icons/go";
 
 const Header  = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Apps", path: "/apps" },
-    { name: "Installation", path: "/installation" },
+    { name: "Home", path: "/", icon:<MdAddHome /> },
+    { name: "Apps", path: "/apps" ,icon: <FaAppStore />},
+    { name: "Installation", path: "/installation",icon:<GoDownload /> },
   ];
+ 
 
   return (
-    <nav className="bg-white shadow-sm ">
+    <nav className="bg-white shadow-sm border-2 border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
+          <Link to='/'>
           <div className="flex items-center space-x-2">
             <img
               src={logo}
@@ -27,7 +31,7 @@ const Header  = () => {
             <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
              ALGORYTHM
             </span>
-          </div>
+          </div></Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
@@ -38,12 +42,15 @@ const Header  = () => {
                 className={({ isActive }) =>
                   `text-sm ${
                     isActive
-                      ? "text-purple-600 underline"
+                      ? "text-purple-600 border-b-2"
                       : "text-gray-700 hover:text-purple-600"
                   }`
                 }
               >
-                {link.name}
+              <div className="flex justify-content-center gap-2 items-center">
+                  <span className="text-xl">{link.icon}</span>
+                  <span className="text-xl">{link.name}</span>
+              </div>
               </NavLink>
             ))}
           </div>

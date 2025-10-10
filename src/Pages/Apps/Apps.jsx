@@ -50,7 +50,7 @@ const Apps = () => {
             </div>
            {
             filteredApps.length === 0 ? <div className=" lg:w-5xl container mx-auto border-2 border-gray-100 py-4 my-12">
-              <p className='text-center text-2xl text-black-200'>No Data Found</p>
+              <p className='text-center text-2xl text-black-200'>No App Found</p>
             </div> :  <div className=" lg:w-5xl mt-2 container  mx-auto grid grid-cols-1 md:grid-cols-3 my-4 lg:grid-cols-4 gap-6">
              {
                 filteredApps?.map(app => <AppsCard key={app.id} app={app}></AppsCard>)
