@@ -27,22 +27,28 @@ const Installation = () => {
           setIsUninstalling(false);
       }, 500); 
   };
+const sortApps = (apps) => {
+  switch (sortOrder) {
+    case "size":
+      return [...apps].sort((a, b) => a.size - b.size);
 
-  const sortApps = (apps) => {
-  
-      switch (sortOrder) {
-          case 'size':
-              return [...apps].sort((a, b) => a.size - b.size);
-          case 'name':
-              return [...apps].sort((a, b) => a.title.localeCompare(b.title));
-          case 'rating':
-              return [...apps].sort((a, b) => b.ratingAvg - a.ratingAvg);
-          case 'downloads':
-              return [...apps].sort((a, b) => b.reviews - a.reviews); 
-          default:
-              return apps; 
-      }
-  };
+    case "name":
+      return [...apps].sort((a, b) => a.title.localeCompare(b.title));
+
+    case "rating":
+      return [...apps].sort((a, b) => b.ratingAvg - a.ratingAvg);
+
+    case "downloads-desc": 
+      return [...apps].sort((a, b) => b.downloads - a.downloads);
+
+    case "downloads-asc": 
+      return [...apps].sort((a, b) => a.downloads - b.downloads);
+
+    default:
+      return apps;
+  }
+};
+
 
   const formattedApps = sortApps(installApp);
 
@@ -61,18 +67,19 @@ const Installation = () => {
             <div className="flex justify-between items-center mb-6 border-b pb-4">
                 <p className="text-gray-700 font-semibold">{installApp.length} Apps Installed</p>
                 <div className="relative">
-                    <select
-                        className="appearance-none bg-white border border-gray-300 rounded-md py-2 pl-3 pr-8 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm cursor-pointer"
-                        value={sortOrder}
-                        onChange={(e) => setSortOrder(e.target.value)}
-                        disabled={isUninstalling} 
-                    >
-                       
-                        <option value="size">Sort By Size</option> 
-                        <option value="name">Sort By Name</option>
-                        <option value="rating">Sort By Rating</option>
-                        <option value="downloads">Sort By Downloads</option>
-                    </select>
+                  <select
+  className="appearance-none bg-white border border-gray-300 rounded-md py-2 pl-3 pr-8 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm cursor-pointer"
+  value={sortOrder}
+  onChange={(e) => setSortOrder(e.target.value)}
+  disabled={isUninstalling}
+>
+  <option value="size">Sort By Size</option>
+  <option value="name">Sort By Name</option>
+  <option value="rating">Sort By Rating</option>
+  <option value="downloads-desc">Downloads: High to Low</option>
+  <option value="downloads-asc">Downloads: Low to High</option>
+</select>
+
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <svg
                             className="fill-current h-4 w-4"
